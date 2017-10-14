@@ -8,13 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.firstName = 'Parth';
+        this.lastName = 'Pandey';
+        this.imgPath = 'http://shop.wwe.com/on/demandware.static/-/Sites/default/dw90089c58/images/slot/landing/superstar-landing/Superstar-Category_Superstar_562x408_tripleH.png';
     }
+    AppComponent.prototype.getFullName = function () {
+        return this.firstName + ' ' + this.lastName;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<h1>Employee Details</h1>\n  <employee></employee>",
+        template: "<h1>Welcome {{getFullName()}}</h1>\n  <img bind-src='imgPath'/>\n  <employee></employee>",
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
