@@ -8,11 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var EmployeeDetails = (function () {
     function EmployeeDetails() {
-        this.name = 'Parth';
-        this.email = 'Parth5502@gmail.com';
-        this.contact = '9425405502';
-        this.loc = 'Indore';
+        this.company = null;
+        this.mobile = null;
+        this.feedback = null;
+        this.uname = null;
+        this.rating = 'positive';
+        this.feedbackList = [];
     }
+    EmployeeDetails.prototype.giveFeedback = function () {
+        this.feedbackList.push({ company: this.company, mobile: this.mobile, feedback: this.feedback, name: this.uname, rating: this.rating });
+        console.log('feedback is', this.feedbackList);
+    };
+    EmployeeDetails.prototype.getTotalRating = function () {
+        return this.feedbackList.length;
+    };
+    EmployeeDetails.prototype.getPositiveRating = function () {
+        return this.feedbackList.filter(function (r) { return r.rating === 'positive'; }).length;
+    };
+    EmployeeDetails.prototype.getNegativeRating = function () {
+        return this.feedbackList.filter(function (r) { return r.rating === 'negative'; }).length;
+    };
     return EmployeeDetails;
 }());
 EmployeeDetails = __decorate([

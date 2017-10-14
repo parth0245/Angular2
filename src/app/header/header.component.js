@@ -6,16 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var Header = (function () {
+    function Header() {
+        this.header = "header";
+        this.pageTitle = 'List Of Reviews';
     }
-    return AppComponent;
+    return Header;
 }());
-AppComponent = __decorate([
+Header = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "<header></header>\n             <section></section>\n              <footer></footer>",
+        selector: 'header',
+        templateUrl: 'app/header/header.component.html'
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], Header);
+exports.Header = Header;
+//# sourceMappingURL=header.component.js.map

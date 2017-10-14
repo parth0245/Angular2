@@ -6,16 +6,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var Employeetitle = (function () {
+    function Employeetitle() {
     }
-    return AppComponent;
+    Employeetitle.prototype.transform = function (value) {
+        return value.toUpperCase();
+    };
+    return Employeetitle;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: "<header></header>\n             <section></section>\n              <footer></footer>",
+Employeetitle = __decorate([
+    core_1.Pipe({
+        name: 'EmployeeTitle'
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], Employeetitle);
+exports.Employeetitle = Employeetitle;
+//# sourceMappingURL=employee.pipe.js.map
