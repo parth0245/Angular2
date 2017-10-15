@@ -12,6 +12,12 @@ export class EmployeeDetails  {
   rating : string = 'positive';
   feedbackList : any[] = [];
 
+  defaultRating : string = 'all';
+
+  onRatingChange(ratingValue:string) :void{
+    this.defaultRating = ratingValue;
+  }
+
   giveFeedback() : void {
     this.feedbackList.push({company:this.company,mobile:this.mobile,feedback:this.feedback,name:this.uname,rating:this.rating});
     console.log('feedback is',this.feedbackList );

@@ -1,4 +1,4 @@
-import {Component , Input} from '@angular/core'
+import {Component , Input , Output , EventEmitter} from '@angular/core'
 
 @Component({
     selector : 'rating',
@@ -6,6 +6,12 @@ import {Component , Input} from '@angular/core'
 })
 
 export class UserRating {
+
+    selectedRating : string = 'all';
+
+    @Output()
+    changeRating : EventEmitter<string> = new EventEmitter<string>();   
+
     @Input()
     all : number;
 
@@ -14,4 +20,8 @@ export class UserRating {
 
     @Input()
     negative : number;
+
+    changeUserRating(){
+        this.changeRating.emit(this.selectedRating);
+    }
 }

@@ -14,7 +14,11 @@ var EmployeeDetails = (function () {
         this.uname = null;
         this.rating = 'positive';
         this.feedbackList = [];
+        this.defaultRating = 'all';
     }
+    EmployeeDetails.prototype.onRatingChange = function (ratingValue) {
+        this.defaultRating = ratingValue;
+    };
     EmployeeDetails.prototype.giveFeedback = function () {
         this.feedbackList.push({ company: this.company, mobile: this.mobile, feedback: this.feedback, name: this.uname, rating: this.rating });
         console.log('feedback is', this.feedbackList);
