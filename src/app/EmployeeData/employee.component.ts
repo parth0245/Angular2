@@ -12,8 +12,8 @@ export class EmployeeDetails implements OnInit  {
   feedback :string = null;
   uname : string = null ;
   rating : string = 'positive';
-
-  feedbackList : IRating[] = [];
+  errMsg : string = 'Loading Data.....';
+  feedbackList : IRating[];
 
   defaultRating : string = 'all';
 
@@ -21,13 +21,17 @@ export class EmployeeDetails implements OnInit  {
     
   }
   ngOnInit(){//ngOnInit is called after the constructor and good to write service call here over http     
-    this.feedbackList = this.ratingService.getReviews();
+  // this.feedbackList = this.ratingService.getReviews().subscribe((feedback) => this.feedbackList = feedback);
+  this.ratingService.getReviews().subscribe((feedback) => this.feedbackList = feedback ,
+                                            (error) => {
+                                              this.errMsg = "Problem with Database"
+                                            });
   }
   onRatingChange(ratingValue:string) :void{
     this.defaultRating = ratingValue;
   }
 
-  giveFeedback() : void {
+  giveFeedback() : void { 
     this.feedbackList.push({company:this.company,mobile:this.mobile,feedback:this.feedback,name:this.uname,rating:this.rating});
     console.log('feedback is',this.feedbackList );
   }

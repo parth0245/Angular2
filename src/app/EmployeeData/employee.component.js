@@ -18,11 +18,15 @@ var EmployeeDetails = (function () {
         this.feedback = null;
         this.uname = null;
         this.rating = 'positive';
-        this.feedbackList = [];
+        this.errMsg = 'Loading Data.....';
         this.defaultRating = 'all';
     }
     EmployeeDetails.prototype.ngOnInit = function () {
-        this.feedbackList = this.ratingService.getReviews();
+        var _this = this;
+        // this.feedbackList = this.ratingService.getReviews().subscribe((feedback) => this.feedbackList = feedback);
+        this.ratingService.getReviews().subscribe(function (feedback) { return _this.feedbackList = feedback; }, function (error) {
+            _this.errMsg = "Problem with Database";
+        });
     };
     EmployeeDetails.prototype.onRatingChange = function (ratingValue) {
         this.defaultRating = ratingValue;
