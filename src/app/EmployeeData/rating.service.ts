@@ -17,12 +17,11 @@ export class RatingService {
         ]*/
 
         return this.http.get("http://demo7430966.mockable.io/ratingList")
-        .map((response : Response)=> <IRating[]>response.json())
+        .map((response : Response)=> <IRating[]>response.json()) 
         .catch(this.error);
     } 
 
     error(error : Response){
-        console.error('error');
         return Observable.throw(error); // this throws the error back as there is no way to do
     }
 }

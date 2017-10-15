@@ -29,7 +29,6 @@ var RatingService = (function () {
             .catch(this.error);
     };
     RatingService.prototype.error = function (error) {
-        console.error('error');
         return Observable_1.Observable.throw(error); // this throws the error back as there is no way to do
     };
     return RatingService;
