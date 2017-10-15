@@ -14,6 +14,16 @@ var UserRating = (function () {
         this.selectedRating = 'all';
         this.changeRating = new core_1.EventEmitter();
     }
+    UserRating.prototype.ngOnChanges = function (changes) {
+        for (var property in changes) {
+            var change = changes[property];
+            var newVal = JSON.stringify(change.currentValue);
+            var oldVal = JSON.stringify(change.previousValue);
+            if (property == 'all') {
+                console.log(newVal, oldVal);
+            }
+        }
+    };
     UserRating.prototype.changeUserRating = function () {
         this.changeRating.emit(this.selectedRating);
     };

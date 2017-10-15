@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import  { IRating } from './rating'
 @Component({
   selector: 'employee',
   templateUrl: 'app/EmployeeData/employee.component.html',
@@ -10,7 +10,8 @@ export class EmployeeDetails  {
   feedback :string = null;
   uname : string = null ;
   rating : string = 'positive';
-  feedbackList : any[] = [];
+
+  feedbackList : IRating[] = [];
 
   defaultRating : string = 'all';
 
