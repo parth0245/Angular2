@@ -5,9 +5,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var core_1 = require("@angular/core");
+var rating_service_1 = require("./rating.service");
 var EmployeeDetails = (function () {
-    function EmployeeDetails() {
+    function EmployeeDetails(ratingService) {
+        this.ratingService = ratingService;
         this.company = null;
         this.mobile = null;
         this.feedback = null;
@@ -16,6 +21,9 @@ var EmployeeDetails = (function () {
         this.feedbackList = [];
         this.defaultRating = 'all';
     }
+    EmployeeDetails.prototype.ngOnInit = function () {
+        this.feedbackList = this.ratingService.getReviews();
+    };
     EmployeeDetails.prototype.onRatingChange = function (ratingValue) {
         this.defaultRating = ratingValue;
     };
@@ -38,7 +46,9 @@ EmployeeDetails = __decorate([
     core_1.Component({
         selector: 'employee',
         templateUrl: 'app/EmployeeData/employee.component.html',
-    })
+        providers: [rating_service_1.RatingService] // Used to register the service.
+    }),
+    __metadata("design:paramtypes", [rating_service_1.RatingService])
 ], EmployeeDetails);
 exports.EmployeeDetails = EmployeeDetails;
 //# sourceMappingURL=employee.component.js.map

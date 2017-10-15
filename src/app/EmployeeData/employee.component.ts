@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit } from '@angular/core';
 import  { IRating } from './rating'
+import { RatingService } from './rating.service'
 @Component({
   selector: 'employee',
   templateUrl: 'app/EmployeeData/employee.component.html',
+  providers: [RatingService] // Used to register the service.
 })
-export class EmployeeDetails  { 
+export class EmployeeDetails implements OnInit  { 
   company : string = null;
   mobile :string = null;
   feedback :string = null;
@@ -15,6 +17,12 @@ export class EmployeeDetails  {
 
   defaultRating : string = 'all';
 
+  constructor(private ratingService : RatingService){
+    
+  }
+  ngOnInit(){//ngOnInit is called after the constructor and good to write service call here over http     
+    this.feedbackList = this.ratingService.getReviews();
+  }
   onRatingChange(ratingValue:string) :void{
     this.defaultRating = ratingValue;
   }
