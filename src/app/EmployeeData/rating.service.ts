@@ -17,7 +17,7 @@ export class RatingService {
         ]*/
 
         return this.http.get("http://demo7430966.mockable.io/ratingList")
-        .map((response : Response)=> <IRating[]>response.json()) 
+        .map((response : Response) => <IRating[]>response.json()) 
         .catch(this.error);
     } 
 

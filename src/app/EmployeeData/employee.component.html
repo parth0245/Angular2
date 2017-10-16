@@ -53,25 +53,25 @@
                 <th>Name</th>
                 <th>Company</th>
                 <th>Mobile</th>
-                <th>Feedback</th>
+                <!--<th>Feedback</th>-->
                 <th>Rating</th>
             </tr>
         </thead>
         <tbody>
             <ng-container *ngFor="let feedback of feedbackList">
-                <tr *ngIf="defaultRating=='all' || defaultRating==feedback.rating">
+                <tr *ngIf="defaultRating=='all' || defaultRating==feedback.rating" [routerLink]="['/feedback',feedback.feedback]">
                     <td>{{feedback.name | EmployeeTitle}}</td>
                     <td>{{feedback.company}}</td>
                     <td>{{feedback.mobile}}</td>
-                    <td>{{feedback.feedback}}</td>
+                    <!--<td>{{feedback.feedback}}</td>-->
                     <td>{{feedback.rating}}</td>
                 </tr>
             </ng-container>
             <tr *ngIf="!feedbackList">
-                    <td colspan="5">{{errMsg}}</td>
+                    <td colspan="4">{{errMsg}}</td>
                 </tr>
                 <tr *ngIf="feedbackList && feedbackList.length == 0">
-                        <td colspan="5">No Data Available</td>
+                        <td colspan="4">No Data Available</td>
                     </tr>
         </tbody>
     </table>

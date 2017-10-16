@@ -1,3 +1,14 @@
-<div [class]="header">
-    <div class="pageTitle">{{pageTitle}}</div>
-</div>
+<nav class="navbar navbar-inverse" style="margin-bottom: 0px">
+        <div class="">
+                <div class="navbar-header">
+                     <a class="navbar-brand" style="color: crimson;font-size:22px;" routerLink="home">Reviews Platform</a>
+                </div>
+         <div>
+            <ul class="nav navbar-nav">
+                    <li routerLinkActive="active"><a routerLink="login">Login</a></li>
+                    <li routerLinkActive="active"><a routerLink="signUp">Sign Up</a></li>
+                    <li routerLinkActive="active"><a routerLink="review">Review</a></li>
+            </ul>
+         </div>
+        </div>
+      </nav>

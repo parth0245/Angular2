@@ -6,16 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var SignupComponent = (function () {
+    function SignupComponent() {
     }
-    return AppComponent;
+    return SignupComponent;
 }());
-AppComponent = __decorate([
+SignupComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "<header></header>\n             <!--<section></section>-->\n              <router-outlet></router-outlet>\n              <footer></footer>",
+        template: '<div>Sign Up Here!!!!</div>'
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], SignupComponent);
+exports.SignupComponent = SignupComponent;
+//# sourceMappingURL=signup.component.js.map
